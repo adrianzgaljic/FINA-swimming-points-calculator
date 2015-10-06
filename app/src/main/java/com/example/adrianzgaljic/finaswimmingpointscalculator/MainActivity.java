@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
         int hund;
         String[] digits = strTime.split(":");
         if (digits.length <2 || digits.length > 3){
-            Toast.makeText(this,"Invalid time input.",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Invalid time input",Toast.LENGTH_SHORT).show();
             return 0;
         } else if (digits.length == 2){
             min = 0;
