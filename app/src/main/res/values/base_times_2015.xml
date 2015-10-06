@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+
+    <!-- free men lcm -->
+    <integer name="free50lcmm">2091</integer>
+    <integer name="free100lcmm">4691</integer>
+    <integer name="free200lcmm">10200</integer>
+    <integer name="free400lcmm">22007</integer>
+    <integer name="free800lcmm">45212</integer>
+    <integer name="free1500lcmm">87102</integer>
+
+    <!-- free women lcm -->
+    <integer name="free50lcmf">2373</integer>
+    <integer name="free100lcmf">5207</integer>
+    <integer name="free200lcmf">11298</integer>
+    <integer name="free400lcmf">23886</integer>
+    <integer name="free800lcmf">49100</integer>
+    <integer name="free1500lcmf">93423</integer>
+
+    <!-- free men scm -->
+    <integer name="free50scmm">2030</integer>
+    <integer name="free100scmm">4494</integer>
+    <integer name="free200scmm">9937</integer>
+    <integer name="free400scmm">21225</integer>
+    <integer name="free800scmm">44342</integer>
+    <integer name="free1500scmm">85010</integer>
+
+    <!-- free women scm -->
+    <integer name="free50scmf">2324</integer>
+    <integer name="free100scmf">5101</integer>
+    <integer name="free200scmf">11117</integer>
+    <integer name="free400scmf">23452</integer>
+    <integer name="free800scmf">47934</integer>
+    <integer name="free1500scmf">92695</integer>
+
+    <!-- back men lcm -->
+    <integer name="back50lcmm">2404</integer>
+    <integer name="back100lcmm">5194</integer>
+    <integer name="back200lcmm">11192</integer>
+
+    <!-- back women lcm -->
+    <integer name="back50lcmf">2706</integer>
+    <integer name="back100lcmf">5812</integer>
+    <integer name="back200lcmf">12406</integer>
+
+    <!-- back men scm -->
+    <integer name="back50scmm">2261</integer>
+    <integer name="back100scmm">4894</integer>
+    <integer name="back200scmm">10611</integer>
+
+    <!-- back women scm -->
+    <integer name="back50scmf">2570</integer>
+    <integer name="back100scmf">5523</integer>
+    <integer name="back200scmf">12003</integer>
+
+    <!-- breast men lcm -->
+    <integer name="breast50lcmm">2662</integer>
+    <integer name="breast100lcmm">5846</integer>
+    <integer name="breast200lcmm">12701</integer>
+
+    <!-- breast women lcm -->
+    <integer name="breast50lcmf">2948</integer>
+    <integer name="breast100lcmf">6435</integer>
+    <integer name="breast200lcmf">13911</integer>
+
+    <!-- breast men scm -->
+    <integer name="breast50scmm">2525</integer>
+    <integer name="breast100scmm">5561</integer>
+    <integer name="breast200scmm">12067</integer>
+
+    <!-- breast women scm -->
+    <integer name="breast50scmf">2880</integer>
+    <integer name="breast100scmf">6236</integer>
+    <integer name="breast200scmf">13457</integer>
+
+    <!-- fly men lcm -->
+    <integer name="fly50lcmm">2243</integer>
+    <integer name="fly100lcmm">4982</integer>
+    <integer name="fly200lcmm">11151</integer>
+
+    <!-- fly women lcm -->
+    <integer name="fly50lcmf">2507</integer>
+    <integer name="fly100lcmf">5598</integer>
+    <integer name="fly200lcmf">12181</integer>
+
+    <!-- fly men scm -->
+    <integer name="fly50scmm">2180</integer>
+    <integer name="fly100scmm">4848</integer>
+    <integer name="fly200scmm">10856</integer>
+
+    <!-- fly women scm -->
+    <integer name="fly50scmf">2438</integer>
+    <integer name="fly100scmf">5505</integer>
+    <integer name="fly200scmf">12078</integer>
+
+    <!-- medley men lcm -->
+    <integer name="medley200lcmm">11400</integer>
+    <integer name="medley400lcmm">24384</integer>
+
+    <!-- medley women lcm -->
+    <integer name="medley200lcmf">12615</integer>
+    <integer name="medley400lcmf">26843</integer>
+
+    <!-- medley men scm -->
+    <integer name="medley100scmm">5071</integer>
+    <integer name="medley200scmm">10963</integer>
+    <integer name="medley400scmm">23550</integer>
+
+    <!-- medley women scm -->
+    <integer name="medley100scmf">5745</integer>
+    <integer name="medley200scmf">12320</integer>
+    <integer name="medley400scmf">26085</integer>
+
+
+
+</resources>

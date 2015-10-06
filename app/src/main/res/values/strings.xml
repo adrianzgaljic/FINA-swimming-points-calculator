@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">FINA Swimming Points Calculator</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="events_prompt">Choose event</string>
+    <string name="course_prompt">Choose event</string>
+    <string name="pick_date">PD</string>
+
+    <string-array name="events_arrays">
+        <item>50 free</item>
+        <item>100 free</item>
+        <item>200 free</item>
+        <item>400 free</item>
+        <item>800 free</item>
+        <item>1500 free</item>
+        <item>50 back</item>
+        <item>100 back</item>
+        <item>200 back</item>
+        <item>50 breast</item>
+        <item>100 breast</item>
+        <item>200 breast</item>
+        <item>50 fly</item>
+        <item>100 fly</item>
+        <item>200 fly</item>
+        <item>100 medley</item>
+        <item>200 medley</item>
+        <item>400 medley</item>
+    </string-array>
+
+    <string-array name="course_arrays">
+        <item>Long course meters</item>
+        <item>Short course meters</item>
+        <item>Short course yards</item>
+    </string-array>
+
+</resources>
