@@ -6,6 +6,8 @@
     <string name="events_prompt">Choose event</string>
     <string name="course_prompt">Choose event</string>
     <string name="pick_date">PD</string>
+    <string name="drawer_open">Open drawer</string>
+    <string name="drawer_close">Close drawer</string>
 
     <string-array name="events_arrays">
         <item>50 free</item>
@@ -26,6 +28,11 @@
         <item>100 medley</item>
         <item>200 medley</item>
         <item>400 medley</item>
+        <item>4x50 free</item>
+        <item>4x100 free</item>
+        <item>4x200 free</item>
+        <item>4x50 medley</item>
+        <item>4x100 medley</item>
     </string-array>
 
     <string-array name="course_arrays">

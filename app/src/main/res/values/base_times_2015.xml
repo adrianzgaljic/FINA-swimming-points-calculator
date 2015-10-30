@@ -113,6 +113,42 @@
     <integer name="medley200scmf">12320</integer>
     <integer name="medley400scmf">26085</integer>
 
+    <!-- free relay man lcm -->
+    <integer name="free4x50lcmm">8485</integer>
+    <integer name="free4x100lcmm">18824</integer>
+    <integer name="free4x200lcmm">41855</integer>
+
+    <!-- free relay women lcm -->
+    <integer name="free4x50lcmf">9660</integer>
+    <integer name="free4x100lcmf">21172</integer>
+    <integer name="free4x200lcmf">46208</integer>
+
+    <!-- free relay man scm -->
+    <integer name="free4x50scmm">8336</integer>
+    <integer name="free4x100scmm">18330</integer>
+    <integer name="free4x200scmm">40904</integer>
+
+    <!-- free relay women scm -->
+    <integer name="free4x50scmf">9704</integer>
+    <integer name="free4x100scmf">20822</integer>
+    <integer name="free4x200scmf">45594</integer>
+
+    <!-- medley relay man lcm -->
+    <integer name="medley4x50lcmm">9343</integer>
+    <integer name="medley4x100lcmm">20728</integer>
+
+    <!-- medley relay women lcm -->
+    <integer name="medley4x50lcmf">10624</integer>
+    <integer name="medley4x100lcmf">23205</integer>
+
+    <!-- medley relay man scm -->
+    <integer name="medley4x50scmm">9365</integer>
+    <integer name="medley4x100scmm">19916</integer>
+
+    <!-- medley relay women scm -->
+    <integer name="medley4x50scmf">10592</integer>
+    <integer name="medley4x100scmf">22556</integer>
+
 
 
 </resources>
