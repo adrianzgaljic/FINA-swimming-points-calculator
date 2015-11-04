@@ -1,6 +1,5 @@
-package com.example.adrianzgaljic.finaswimmingpointscalculator;/*
- * The Android chronometer widget revised so as to count milliseconds
- */
+package com.example.adrianzgaljic.finaswimmingpointscalculator;
+
 
 import android.content.Context;
 import android.os.Handler;
@@ -11,8 +10,7 @@ import android.widget.TextView;
 import java.text.DecimalFormat;
 
 public class Chronometer extends TextView {
-    @SuppressWarnings("unused")
-    private static final String TAG = "Chronometer";
+
 
     public interface OnChronometerTickListener {
 
@@ -49,24 +47,12 @@ public class Chronometer extends TextView {
 
     }
 
-    public void setBase(long base) {
-        mBase = base;
-        dispatchChronometerTick();
-        updateText(SystemClock.elapsedRealtime());
-    }
-
-    public long getBase() {
-        return mBase;
-    }
 
     public void setOnChronometerTickListener(
             OnChronometerTickListener listener) {
         mOnChronometerTickListener = listener;
     }
 
-    public OnChronometerTickListener getOnChronometerTickListener() {
-        return mOnChronometerTickListener;
-    }
 
     public void start() {
         mBase = SystemClock.elapsedRealtime()-timeElapsed;
@@ -86,10 +72,6 @@ public class Chronometer extends TextView {
     }
 
 
-    public void setStarted(boolean started) {
-        mStarted = started;
-        updateRunning();
-    }
 
     @Override
     protected void onDetachedFromWindow() {
@@ -113,13 +95,12 @@ public class Chronometer extends TextView {
         int hours = (int)(timeElapsed / (3600 * 1000));
         int remaining = (int)(timeElapsed % (3600 * 1000));
         
-        int minutes = (int)(remaining / (60 * 1000));
-        remaining = (int)(remaining % (60 * 1000));
+        int minutes = (remaining / (60 * 1000));
+        remaining = (remaining % (60 * 1000));
         
-        int seconds = (int)(remaining / 1000);
-        remaining = (int)(remaining % (1000));
+        int seconds = (remaining / 1000);
         
-        int milliseconds = (int)(((int)timeElapsed % 1000) / 100);
+        int milliseconds = (((int)timeElapsed % 1000) / 100);
         
         String text = "";
         

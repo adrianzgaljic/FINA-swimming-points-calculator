@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 /**
  * Created by adrianzgaljic on 11/10/15.
+ * Activity that shows info about app.
  */
 public class ShowInfoActivity extends Activity {
 

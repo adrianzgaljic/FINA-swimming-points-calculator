@@ -17,29 +17,98 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:orientation="vertical">
 
-    <com.example.adrianzgaljic.finaswimmingpointscalculator.Chronometer
-        android:id="@+id/chrono"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textSize="90sp"
-        android:text="Chronometer"
-        android:layout_marginTop="60dp"
-        android:gravity="center"/>
 
-    <EditText
+                <Spinner
+                    android:id="@+id/spinnerEvent"
+                    android:entries="@array/events_arrays"
+                    android:prompt="@string/events_prompt"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+
+
+            <Spinner
+                android:id="@+id/spinnerCourse"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:entries="@array/course_arrays"
+                android:prompt="@string/course_prompt"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="30dp"
+                android:layout_alignParentEnd="true" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/radioCourse"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignRight="@+id/radioCourse"
+                android:layout_alignEnd="@+id/radioCourse"
+                android:layout_marginTop="20dp"
+                android:id="@+id/radioGender"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="2"
+                    android:layout_below="@+id/radioGender"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true">
+
+                    <RadioButton
+                        android:id="@+id/radioM"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableTop="?android:attr/listChoiceIndicatorSingle"
+                        android:gravity="center|top"
+                        android:text="Male"
+                        android:button="@null"
+                        android:checked="true"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true" />
+
+                    <RadioButton
+                        android:id="@+id/radioF"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableTop="?android:attr/listChoiceIndicatorSingle"
+                        android:gravity="center|top"
+                        android:text="Female"
+                        android:button="@null"
+                        android:layout_below="@+id/radioGender"
+                        android:layout_alignRight="@+id/radioGender"
+                        android:layout_alignEnd="@+id/radioGender" />
+                </LinearLayout>
+
+            </RadioGroup>
+
+            <com.example.adrianzgaljic.finaswimmingpointscalculator.Chronometer
+                android:id="@+id/chrono"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="40sp"
+                android:text="Chronometer"
+                android:layout_marginTop="60dp"
+                android:gravity="center" />
+
+            <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/swPoints"
-        android:layout_weight="3.74"
+        android:layout_weight="1"
         android:layout_gravity="center_horizontal"
         android:textSize="50dp"
         android:layout_marginTop="30dp"
@@ -48,11 +117,12 @@
         android:focusable="false"
         android:gravity="center_vertical|center_horizontal" />
 
-    <LinearLayout
+            <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="118dp"
-        android:weightSum="2">
+        android:weightSum="2"
+                android:layout_weight="1">
 
         <Button
             android:layout_width="wrap_content"
@@ -71,7 +141,6 @@
 
         </LinearLayout>
 
-    </LinearLayout>
 
     <!-- Note that `android:layout_gravity` needs to be set to 'start' -->
     <android.support.design.widget.NavigationView

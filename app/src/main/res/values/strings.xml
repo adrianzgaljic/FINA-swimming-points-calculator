@@ -8,6 +8,8 @@
     <string name="pick_date">PD</string>
     <string name="drawer_open">Open drawer</string>
     <string name="drawer_close">Close drawer</string>
+    <string name="Stop">STOP</string>
+    <string name="Start">START</string>
 
     <string-array name="events_arrays">
         <item>50 free</item>
@@ -39,6 +41,13 @@
         <item>Long course meters</item>
         <item>Short course meters</item>
         <item>Short course yards</item>
+    </string-array>
+
+
+    <string-array name="course_arrays_short">
+        <item>LCM</item>
+        <item>SCM</item>
+        <item>SCY</item>
     </string-array>
 
 </resources>

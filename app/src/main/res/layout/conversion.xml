@@ -38,48 +38,45 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"/>
 
-    <TextView
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="From"
-        android:layout_weight="1"
-        android:id="@+id/tvFrom"
         android:layout_gravity="center_horizontal"
-        android:gravity="center_horizontal|bottom" />
+        android:layout_weight="1">
 
+        <Spinner
+            android:id="@+id/spinnerCourseFrom"
+            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:entries="@array/course_arrays_short"
+            android:prompt="@string/course_prompt"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="center" />
 
-    <Spinner
-        android:id="@+id/spinnerCourseFrom"
-        android:layout_width="fill_parent"
-        android:layout_weight="1"
-        android:layout_height="wrap_content"
-        android:entries="@array/course_arrays"
-        android:prompt="@string/course_prompt"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:background="@drawable/ic_cached_black_36dp"
+            android:layout_gravity="center" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="To"
-        android:layout_weight="1"
-        android:id="@+id/tvTo"
-        android:gravity="center_horizontal|bottom" />
+        <Spinner
+            android:id="@+id/spinnerCourseTo"
+            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:entries="@array/course_arrays_short"
+            android:prompt="@string/course_prompt"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="center" />
+    </LinearLayout>
 
-
-    <Spinner
-        android:id="@+id/spinnerCourseTo"
-        android:layout_width="fill_parent"
-        android:layout_weight="1"
-        android:layout_height="wrap_content"
-        android:entries="@array/course_arrays"
-        android:prompt="@string/course_prompt"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
 
     <EditText
         android:id="@+id/etTimeFrom"
@@ -88,7 +85,7 @@
         android:imeOptions="actionDone"
         android:inputType="time"
         android:layout_weight="1"
-        android:text="time" />
+        android:hint="time" />
 
 
 

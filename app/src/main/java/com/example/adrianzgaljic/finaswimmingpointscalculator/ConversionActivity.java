@@ -1,11 +1,10 @@
 package com.example.adrianzgaljic.finaswimmingpointscalculator;
 
-import android.app.Activity;
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -20,12 +19,12 @@ import android.widget.Spinner;
 
 /**
  * Created by adrianzgaljic on 11/10/15.
+ *
+ * Acitivity which enables conversions between times in 3 different pool sizes:
+ * long course meters, short course meters and short course yards
  */
 public class ConversionActivity extends AppCompatActivity {
 
-    private Spinner spinnerEvent;
-    private Spinner spinnerCourseFrom;
-    private Spinner spinnerCourseTo;
     private EditText edFrom;
     private EditText edTo;
     public String event;
@@ -44,13 +43,15 @@ public class ConversionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.conversion);
 
-        spinnerEvent = (Spinner) findViewById(R.id.spinnerEventConversion);
-        spinnerCourseFrom = (Spinner) findViewById(R.id.spinnerCourseFrom);
-        spinnerCourseTo = (Spinner) findViewById(R.id.spinnerCourseTo);
+        //field for time input
         edFrom = (EditText) findViewById(R.id.etTimeFrom);
-        edTo = (EditText) findViewById(R.id.etTimeTo);
-        btnConvert = (Button) findViewById(R.id.btnConvert);
 
+        //field for calculated result
+        edTo = (EditText) findViewById(R.id.etTimeTo);
+
+
+        //spinner for choosing event
+        Spinner spinnerEvent = (Spinner) findViewById(R.id.spinnerEventConversion);
         spinnerEvent.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -63,7 +64,8 @@ public class ConversionActivity extends AppCompatActivity {
             }
         });
 
-
+        //spinner for choosing course from which user wants to calculate time
+        Spinner spinnerCourseFrom = (Spinner) findViewById(R.id.spinnerCourseFrom);
         spinnerCourseFrom.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -76,6 +78,8 @@ public class ConversionActivity extends AppCompatActivity {
             }
         });
 
+        //spinner for choosing course to which user wants to calculate time
+        Spinner spinnerCourseTo = (Spinner) findViewById(R.id.spinnerCourseTo);
         spinnerCourseTo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -88,6 +92,8 @@ public class ConversionActivity extends AppCompatActivity {
             }
         });
 
+        //button for starting conversion
+        btnConvert = (Button) findViewById(R.id.btnConvert);
         btnConvert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -115,26 +121,29 @@ public class ConversionActivity extends AppCompatActivity {
         });
 
 
+        //toolbar with title
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("FINA Swimming Points Calculator");
+        toolbar.setTitle("Convert times");
+        toolbar.setTitleTextColor(Color.WHITE);
 
-        // Find our drawer view
-        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
 
         ActionBarDrawerToggle drawerToggle = setupDrawerToggle();
         drawerToggle.syncState();
 
-        // Tie DrawerLayout events to the ActionBarToggle
+        //navigation drawer
+        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawer.setDrawerListener(drawerToggle);
-
-
-        // Find our drawer view
         nvDrawer = (NavigationView) findViewById(R.id.nvView);
-        // Setup drawer view
         setupDrawerContent(nvDrawer);
+
 
     }
 
+    /**
+     * Method which sets navigation drawer listener
+     * @param navigationView navigation view
+     */
     private void setupDrawerContent(NavigationView navigationView) {
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
@@ -146,20 +155,24 @@ public class ConversionActivity extends AppCompatActivity {
                 });
     }
 
+    /**
+     * Mathod which starts selected activity
+     * @param menuItem item slected from navigtion drawer
+     */
     public void selectDrawerItem(MenuItem menuItem) {
-        // Create a new fragment and specify the planet to show based on
-        // position
-        Fragment fragment = null;
 
         Class fragmentClass;
         switch(menuItem.getItemId()) {
-            case R.id.nav_first_fragment:
+            case R.id.nav_calculator:
+                fragmentClass = MainActivity.class;
+                break;
+            case R.id.nav_stopwatch:
                 fragmentClass = StopwatchActivity.class;
                 break;
-            case R.id.nav_second_fragment:
+            case R.id.nav_convert:
                 fragmentClass = ConversionActivity.class;
                 break;
-            case R.id.nav_third_fragment:
+            case R.id.nav_about:
                 fragmentClass = ShowInfoActivity.class;
                 break;
             default:

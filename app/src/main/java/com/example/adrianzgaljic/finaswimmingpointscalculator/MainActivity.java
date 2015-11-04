@@ -1,13 +1,11 @@
 package com.example.adrianzgaljic.finaswimmingpointscalculator;
 
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -20,24 +18,17 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-
-import java.lang.reflect.Array;
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
 
 
 public class MainActivity extends AppCompatActivity {
 
     public static String TAG = "logIspis";
 
-    private Spinner spinnerEvent;
     public static String event;
     public static String gender;
-    private Spinner spinnerCourse;
     public static String course;
     private EditText etTime;
     private EditText etPoints;
@@ -53,12 +44,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        event = null;
-        course = null;
+        //default gender is male
         gender = "m";
 
-
-        spinnerEvent = (Spinner) findViewById(R.id.spinnerEvent);
+        //spinner for choosing event
+        Spinner spinnerEvent = (Spinner) findViewById(R.id.spinnerEvent);
         spinnerEvent.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -71,7 +61,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        spinnerCourse = (Spinner) findViewById(R.id.spinnerCourse);
+        //spinner for choosing course
+        Spinner spinnerCourse = (Spinner) findViewById(R.id.spinnerCourse);
         spinnerCourse.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -85,8 +76,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        final RadioGroup radioGender = (RadioGroup) findViewById(R.id.radioGender);
 
+        //radio buttons for choosing gender, radioM is checked by default
         final RadioButton radioM = (RadioButton) findViewById(R.id.radioM);
         final RadioButton radioF = (RadioButton) findViewById(R.id.radioF);
 
@@ -108,10 +99,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        //field for points input and displaying result
         etPoints = (EditText) findViewById(R.id.etPoints);
+
+        //field for time input and displaying result
         etTime = (EditText) findViewById(R.id.etTime);
 
+        //button for starting calculation
+        //if time field is focused and not empty, points will be calculated and vice versa
         Button btnCalculate = (Button) findViewById(R.id.btnCalculate);
         btnCalculate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,29 +132,29 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //toolbar with title
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("FINA Swimming Points Calculator");
+        toolbar.setTitle("Stopwatch");
+        toolbar.setTitleTextColor(Color.WHITE);
 
-        // Find our drawer view
-        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
 
         ActionBarDrawerToggle drawerToggle = setupDrawerToggle();
         drawerToggle.syncState();
 
-        // Tie DrawerLayout events to the ActionBarToggle
+        //navigation drawer
+        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawer.setDrawerListener(drawerToggle);
-
-
-        // Find our drawer view
         nvDrawer = (NavigationView) findViewById(R.id.nvView);
-        // Setup drawer view
         setupDrawerContent(nvDrawer);
-
-
 
 
     }
 
+    /**
+     * Method which sets navigation drawer listener
+     * @param navigationView navigation view
+     */
     private void setupDrawerContent(NavigationView navigationView) {
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
@@ -171,20 +166,24 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
+    /**
+     * Mathod which starts selected activity
+     * @param menuItem item slected from navigtion drawer
+     */
     public void selectDrawerItem(MenuItem menuItem) {
-        // Create a new fragment and specify the planet to show based on
-        // position
-        Fragment fragment = null;
 
         Class fragmentClass;
         switch(menuItem.getItemId()) {
-            case R.id.nav_first_fragment:
+            case R.id.nav_calculator:
+                fragmentClass = MainActivity.class;
+                break;
+            case R.id.nav_stopwatch:
                 fragmentClass = StopwatchActivity.class;
                 break;
-            case R.id.nav_second_fragment:
+            case R.id.nav_convert:
                 fragmentClass = ConversionActivity.class;
                 break;
-            case R.id.nav_third_fragment:
+            case R.id.nav_about:
                 fragmentClass = ShowInfoActivity.class;
                 break;
             default:
@@ -211,7 +210,11 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    // Make sure this is the method with just `Bundle` as the signature
+    private ActionBarDrawerToggle setupDrawerToggle() {
+        return new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.drawer_open,  R.string.drawer_close);
+    }
+
+
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
@@ -240,13 +243,24 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Method which calculates points
+     * @param time input time
+     * @return calculated points
+     */
     public static int calculatePoints(float time) {
 
         float points = 1000*(float)Math.pow((baseTime/time),3);
         return  (int)points;
-       // return (float)pointsInt;
+
     }
 
+    /**
+     * Method which calculates float time from string input
+     * @param strTime time in string
+     * @param context this context
+     * @return float time
+     */
     public static float parseTime(String strTime, Context context) {
         int min;
         int sec;
@@ -271,9 +285,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Method which return base time for selected event
+     * @param context this context
+     * @return base time
+     */
     public static float getBaseTime(Context context){
-        String eventPart = "";
-        String coursePart = "";
+        String eventPart;
+        String coursePart;
         if (event == null){
             Toast.makeText(context,"Choose event.",Toast.LENGTH_SHORT).show();
             return 0;
@@ -282,31 +301,40 @@ public class MainActivity extends AppCompatActivity {
         eventPart = eventParts[1]+eventParts[0];
 
 
-
-        if (course.equals("Long course meters")) {
-            coursePart = "lcm";
-        } else if (course.equals("Short course meters")) {
-            coursePart = "scm";
-        } else {
-            coursePart = "scy";
+        switch (course) {
+            case "Long course meters":
+                coursePart = "lcm";
+                break;
+            case "Short course meters":
+                coursePart = "scm";
+                break;
+            default:
+                coursePart = "scy";
+                break;
         }
 
         if (coursePart.equals("scy")){
             String query = eventPart+"scm"+gender;
             int id = context.getResources().getIdentifier(query,"integer",context.getPackageName());
             baseTime = (float)context.getResources().getInteger(id)/100;
-            if (eventParts[0].equals("50")){
-                baseTime = (float) ((baseTime-1)/1.1);
-            } else if (eventParts[0].equals("100")){
-                baseTime = (float) ((baseTime-2)/1.1);
-            }else if (eventParts[0].equals("200")){
-                baseTime = (float) ((baseTime-4)/1.1);
-            }else if (eventParts[0].equals("400")){
-                baseTime = (float) ((baseTime-8)/1.1);
-            }else {
-                baseTime = 0;
-                Toast.makeText(context,"There is no "+eventParts[0]+" yard event.",Toast.LENGTH_SHORT).show();
+            switch (eventParts[0]) {
+                case "50":
+                    baseTime = (float) ((baseTime - 1) / 1.1);
+                    break;
+                case "100":
+                    baseTime = (float) ((baseTime - 2) / 1.1);
+                    break;
+                case "200":
+                    baseTime = (float) ((baseTime - 4) / 1.1);
+                    break;
+                case "400":
+                    baseTime = (float) ((baseTime - 8) / 1.1);
+                    break;
+                default:
+                    baseTime = 0;
+                    Toast.makeText(context, "There is no " + eventParts[0] + " yard event.", Toast.LENGTH_SHORT).show();
 
+                    break;
             }
 
 
@@ -320,19 +348,5 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public float toYards(float meters){
-        String eventParts[] = event.split(" ");
-        String length = eventParts[1];
-
-        course = "scm";
-        Float scmBaseTime = getBaseTime(MainActivity.this);
-
-
-        return scmBaseTime;
-    }
-
-    private ActionBarDrawerToggle setupDrawerToggle() {
-        return new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.drawer_open,  R.string.drawer_close);
-    }
 
 }

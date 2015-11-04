@@ -1,16 +1,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
+
         <item
-            android:id="@+id/nav_first_fragment"
+            android:id="@+id/nav_calculator"
+            android:icon="@drawable/calculator"
+            android:title="Calculator" />
+        <item
+            android:id="@+id/nav_stopwatch"
             android:icon="@drawable/ic_alarm_black_36dp"
             android:title="Stopwatch" />
         <item
-            android:id="@+id/nav_second_fragment"
+            android:id="@+id/nav_convert"
             android:icon="@drawable/ic_cached_black_36dp"
             android:title="Convert times" />
         <item
-            android:id="@+id/nav_third_fragment"
+            android:id="@+id/nav_about"
             android:icon="@drawable/ic_info_outline_black_36dp"
             android:title="About application" />
     </group>
